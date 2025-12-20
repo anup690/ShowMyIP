@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.anoop"
-version = "1.0-SNAPSHOT"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -17,7 +17,7 @@ repositories {
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
 dependencies {
     intellijPlatform {
-        intellijIdea("2025.2.4")
+        intellijIdea("2024.2.1")
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
 
         // Add plugin dependencies for compilation here:
@@ -30,11 +30,11 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "252.25557"
+            sinceBuild = "242"
         }
 
         changeNotes = """
-            Initial version
+            Added backward compatibility to 2024.2.1 IDE.
         """.trimIndent()
     }
 }
