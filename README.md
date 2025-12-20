@@ -1,117 +1,122 @@
-# IntelliJ Platform Plugin Template
+# ShowMyIP
 
-[![Twitter Follow](https://img.shields.io/badge/follow-%40JBPlatform-1DA1F2?logo=twitter)](https://twitter.com/JBPlatform)
-[![Developers Forum](https://img.shields.io/badge/JetBrains%20Platform-Join-blue)][jb:forum]
+<div align="center">
+  <img src="src/main/resources/META-INF/pluginIcon.svg" alt="ShowMyIP Plugin Icon" width="128" height="128">
+</div>
 
-## Plugin template structure
+[![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF)](https://kotlinlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![JetBrains Plugins](https://img.shields.io/badge/JetBrains-Plugins-blue)](https://plugins.jetbrains.com/plugin/ShowMyIP)
 
-A generated project contains the following content structure:
+An IntelliJ IDEA plugin that displays your local LAN IP address directly in the IDE status bar.
+
+## Features
+
+- Shows your local network IP address in the status bar
+- Click on the IP address to refresh and get the latest IP
+- Lightweight and non-intrusive
+- Works with all IntelliJ-based IDEs
+
+## Installation
+
+### From JetBrains Marketplace
+
+1. Open IntelliJ IDEA
+2. Go to `Settings` → `Plugins`
+3. Search for "ShowMyIP"
+4. Click `Install` and restart your IDE
+
+### Manual Installation
+
+1. Download the plugin JAR from the [Releases](https://github.com/yourusername/ShowMyIP/releases) page
+2. Open IntelliJ IDEA
+3. Go to `Settings` → `Plugins` → `Install Plugin from Disk`
+4. Select the downloaded JAR file and click `OK`
+5. Restart your IDE
+
+## Usage
+
+Once installed, the plugin will automatically display your local IP address in the status bar at the bottom of your IDE window.
+
+- **View IP**: The IP address will be shown in the status bar (e.g., "192.168.1.100")
+- **Refresh**: Click on the IP address text to refresh and get the current IP address
+- **Network Changes**: The IP will automatically update when your network connection changes
+
+## Development
+
+### Prerequisites
+
+- JDK 11 or higher
+- IntelliJ IDEA 2022.2 or higher
+
+### Building from Source
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/anup690/ShowMyIP.git
+   cd ShowMyIP
+   ```
+
+2. Open the project in IntelliJ IDEA
+
+3. Run the plugin:
+   - Use the predefined "Run Plugin" configuration
+   - Or run `./gradlew runIde` from the terminal
+
+4. Build the plugin:
+   ```bash
+   ./gradlew buildPlugin
+   ```
+
+5. The plugin JAR will be created in `build/libs/`
+
+### Testing
+
+Run tests with:
+```bash
+./gradlew test
+```
+
+### Publishing
+
+To publish to JetBrains Marketplace:
+```bash
+./gradlew publishPlugin
+```
+
+Make sure to configure your JetBrains Hub credentials in `gradle.properties`.
+
+## Project Structure
 
 ```
 .
-├── .run/                   Predefined Run/Debug Configurations
-├── build/                  Output build directory
-├── gradle
-│   ├── wrapper/            Gradle Wrapper
-├── src                     Plugin sources
-│   ├── main
-│   │   ├── kotlin/         Kotlin production sources
-│   │   └── resources/      Resources - plugin.xml, icons, messages
-├── .gitignore              Git ignoring rules
-├── build.gradle.kts        Gradle build configuration
-├── gradle.properties       Gradle configuration properties
-├── gradlew                 *nix Gradle Wrapper script
-├── gradlew.bat             Windows Gradle Wrapper script
-├── README.md               README
-└── settings.gradle.kts     Gradle project settings
+├── src/main/kotlin/           # Kotlin source code
+├── src/main/resources/        # Plugin resources and configuration
+│   └── META-INF/plugin.xml    # Plugin manifest
+├── build.gradle.kts           # Gradle build configuration
+├── gradle.properties          # Gradle properties
+└── README.md                  # This file
 ```
 
-In addition to the configuration files, the most crucial part is the `src` directory, which contains our implementation
-and the manifest for our plugin – [plugin.xml][file:plugin.xml].
+## Contributing
 
-> [!NOTE]
-> To use Java in your plugin, create the `/src/main/java` directory.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Plugin configuration file
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-The plugin configuration file is a [plugin.xml][file:plugin.xml] file located in the `src/main/resources/META-INF`
-directory.
-It provides general information about the plugin, its dependencies, extensions, and listeners.
+## License
 
-You can read more about this file in the [Plugin Configuration File][docs:plugin.xml] section of our documentation.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-If you're still not quite sure what this is all about, read our
-introduction: [What is the IntelliJ Platform?][docs:intro]
+## Support
 
-$H$H Predefined Run/Debug configurations
+If you find this plugin useful, please consider starring the repository on GitHub!
 
-Within the default project structure, there is a `.run` directory provided containing predefined *Run/Debug
-configurations* that expose corresponding Gradle tasks:
+## Acknowledgments
 
-| Configuration name | Description                                                                                                                                                                         |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Run Plugin         | Runs [`:runIde`][gh:intellij-platform-gradle-plugin-runIde] IntelliJ Platform Gradle Plugin task. Use the *Debug* icon for plugin debugging.                                        |
-| Run Tests          | Runs [`:test`][gradle:lifecycle-tasks] Gradle task.                                                                                                                                 |
-| Run Verifications  | Runs [`:verifyPlugin`][gh:intellij-platform-gradle-plugin-verifyPlugin] IntelliJ Platform Gradle Plugin task to check the plugin compatibility against the specified IntelliJ IDEs. |
-
-> [!NOTE]
-> You can find the logs from the running task in the `idea.log` tab.
-
-## Publishing the plugin
-
-> [!TIP]
-> Make sure to follow all guidelines listed in [Publishing a Plugin][docs:publishing] to follow all recommended and
-> required steps.
-
-Releasing a plugin to [JetBrains Marketplace](https://plugins.jetbrains.com) is a straightforward operation that uses
-the `publishPlugin` Gradle task provided by
-the [intellij-platform-gradle-plugin][gh:intellij-platform-gradle-plugin-docs].
-
-You can also upload the plugin to the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/upload)
-manually via UI.
-
-## Useful links
-
-- [IntelliJ Platform SDK Plugin SDK][docs]
-- [IntelliJ Platform Gradle Plugin Documentation][gh:intellij-platform-gradle-plugin-docs]
-- [IntelliJ Platform Explorer][jb:ipe]
-- [JetBrains Marketplace Quality Guidelines][jb:quality-guidelines]
-- [IntelliJ Platform UI Guidelines][jb:ui-guidelines]
-- [JetBrains Marketplace Paid Plugins][jb:paid-plugins]
-- [IntelliJ SDK Code Samples][gh:code-samples]
-
-[docs]: https://plugins.jetbrains.com/docs/intellij
-
-[docs:intro]: https://plugins.jetbrains.com/docs/intellij/intellij-platform.html?from=IJPluginTemplate
-
-[docs:plugin.xml]: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html?from=IJPluginTemplate
-
-[docs:publishing]: https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate
-
-[file:plugin.xml]: ./src/main/resources/META-INF/plugin.xml
-
-[gh:code-samples]: https://github.com/JetBrains/intellij-sdk-code-samples
-
-[gh:intellij-platform-gradle-plugin]: https://github.com/JetBrains/intellij-platform-gradle-plugin
-
-[gh:intellij-platform-gradle-plugin-docs]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
-
-[gh:intellij-platform-gradle-plugin-runIde]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-tasks.html#runIde
-
-[gh:intellij-platform-gradle-plugin-verifyPlugin]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-tasks.html#verifyPlugin
-
-[gradle:lifecycle-tasks]: https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks
-
-[jb:github]: https://github.com/JetBrains/.github/blob/main/profile/README.md
-
-[jb:forum]: https://platform.jetbrains.com/
-
-[jb:quality-guidelines]: https://plugins.jetbrains.com/docs/marketplace/quality-guidelines.html
-
-[jb:paid-plugins]: https://plugins.jetbrains.com/docs/marketplace/paid-plugins-marketplace.html
-
-[jb:quality-guidelines]: https://plugins.jetbrains.com/docs/marketplace/quality-guidelines.html
-
-[jb:ipe]: https://jb.gg/ipe
-
-[jb:ui-guidelines]: https://jetbrains.github.io/ui
+- Built with the [IntelliJ Platform SDK](https://plugins.jetbrains.com/docs/intellij/intellij-platform.html)
+- Uses [IntelliJ Platform Gradle Plugin](https://github.com/JetBrains/intellij-platform-gradle-plugin)
