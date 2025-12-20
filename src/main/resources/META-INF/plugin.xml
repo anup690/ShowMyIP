@@ -8,7 +8,7 @@
     <name>ShowMyIP</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="">Anoop</vendor>
+    <vendor url="anoop690@gmail.com">Anoop</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
