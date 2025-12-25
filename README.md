@@ -1,7 +1,7 @@
 # ShowMyIP
 
 <div align="center">
-  <img src="src/main/resources/META-INF/pluginIcon.svg" alt="ShowMyIP Plugin Icon" width="128" height="128">
+  <img src="src/main/resources/META-INF/pluginIcon.png" alt="ShowMyIP Plugin Icon" width="128" height="128">
 </div>
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF)](https://kotlinlang.org/)
